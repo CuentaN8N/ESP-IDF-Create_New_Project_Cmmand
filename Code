@@ -1,0 +1,10 @@
+comando = input()
+if (comando == "Nuevo proyecto"):
+	os.chdir(r"C:\Espressif\frameworks\esp-idf-v5.5.1\Projects")
+	nombre = input("Nombre de Proyecto: ")
+	os.makedirs(nombre, exist_ok=True)
+	print(rf"Directorio '{nombre}' creado correctamente.")
+	shutil.copytree(rf"C:\Espressif\frameworks\examples\get-started\hello_world", rf"C:\Espressif\frameworks\esp-idf-v5.5.1\Projects\'{nombre}'")
+	os.chdir(rf"C:\Espressif\frameworks\esp-idf-v5.5.1\Projects\'{nombre}'")
+	os.rename(rf"C:\Espressif\frameworks\esp-idf-v5.5.1\Projects\'{nombre}'\pytest_hello_world.py", rf"C:\Espressif\frameworks\esp-idf-v5.5.1\Projects\'{nombre}'\'{nombre}'.py")
+	os.system(rf"notepad C:\Espressif\frameworks\esp-idf-v5.5.1\Projects\'{nombre}'\'{nombre}'.py")
